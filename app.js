@@ -321,7 +321,9 @@ async function fredCurrent() {
   for (let i = 0; i < parts.length; i++) {
     if (token !== speakToken) { fredBusy = false; return; }  // interrupted
     renderWord(textEl, item.word, parts, i);   // highlight the active grapheme
-    await speak(SAY[parts[i]] ?? parts[i], { rate: 0.7, pitch: 1.05 });
+    // Use the pure-sound pronunciation if we have one, else the letters as-is.
+    // (Plain || instead of ?? so older Safari can parse the file at all.)
+    await speak(SAY[parts[i]] || parts[i], { rate: 0.7, pitch: 1.05 });
     await wait(120);
   }
 
