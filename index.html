@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Phonics Fun</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ HOME: pick a level ============ -->
+  <section id="home" class="screen active">
+    <h1 class="title">🦊 Phonics Fun</h1>
+    <p class="subtitle">Choose a level to start</p>
+    <div id="levelGrid" class="grid"></div>
+  </section>
+
+  <!-- ============ MENU: pick an activity ============ -->
+  <section id="menu" class="screen">
+    <header class="bar">
+      <button class="back" data-go="home">⬅︎</button>
+      <h2 id="menuTitle"></h2>
+    </header>
+    <div id="activityGrid" class="grid"></div>
+  </section>
+
+  <!-- ============ ACTIVITY: flashcards ============ -->
+  <section id="activity" class="screen">
+    <header class="bar">
+      <button class="back" data-go="menu">⬅︎</button>
+      <h2 id="activityTitle"></h2>
+      <span id="progress" class="progress"></span>
+    </header>
+
+    <div class="card-stage">
+      <button id="prevBtn" class="nav-arrow" aria-label="Previous">‹</button>
+
+      <div id="card" class="card">
+        <div id="cardPic" class="card-pic"></div>
+        <div id="cardText" class="card-text"></div>
+        <div id="cardSub" class="card-sub"></div>
+      </div>
+
+      <button id="nextBtn" class="nav-arrow" aria-label="Next">›</button>
+    </div>
+
+    <div class="controls">
+      <button id="sayBtn" class="action big">🔊 Say it</button>
+      <button id="fredBtn" class="action">🐸 Sound it out</button>
+      <button id="rhymeBtn" class="action">🗣️ Say the rhyme</button>
+      <button id="hintBtn" class="action">💡 Hint</button>
+    </div>
+  </section>
+
+  <!-- ============ GAME: listen and find the word ============ -->
+  <section id="game" class="screen">
+    <header class="bar">
+      <button class="back" data-go="menu">⬅︎</button>
+      <h2>Find the Word</h2>
+      <span id="gameProgress" class="progress"></span>
+    </header>
+
+    <div id="gamePlay">
+      <p class="game-prompt">👂 Which word did you hear?</p>
+      <div class="game-controls">
+        <button id="gameSayBtn" class="action big">🔊 Say it again</button>
+      </div>
+      <div id="gameGrid" class="grid game-grid"></div>
+    </div>
+
+    <div id="gameDone" class="game-done hidden">
+      <div class="game-done-emoji">⭐</div>
+      <p class="game-done-text">You found them all!</p>
+      <button id="gameAgainBtn" class="action big">▶︎ Play again</button>
+    </div>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
